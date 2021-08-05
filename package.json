@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "add dist": "git add dist",
+    "commit dist": "git commit -m 'publish'",
+    "push dist": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "core-js": "^3.6.5",

@@ -1,6 +1,7 @@
 <template>
-  <div class="app">
-    <router-view />
+  <div>
+    <p class="qwer">maincomponent</p>
+    <testt />
   </div>
 </template>
 
@@ -9,6 +10,7 @@ export default {
 
 }
 </script>
+
 <style lang="scss" scoped>
 
 </style>
