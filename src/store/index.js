@@ -11,15 +11,17 @@ export default new Vuex.Store({
   },
   mutations: {
     set_allTasks(state, payload) {
-      state.allTasks = payload
+      state.allTasks = payload || []
+      localStorage.setItem('allTasks', JSON.stringify(state.allTasks))
     },
+
     push_to_allTasks(state, payload) {
-      debugger
       if (payload == '') {
         return
       }
       let count = state.allTasks.length ? Math.max(...state.allTasks.map(task => task.id )) : 0
       state.allTasks.push({id: ++count, value: payload, select: false})
+      localStorage.setItem('allTasks', JSON.stringify(state.allTasks))
       
       
     },

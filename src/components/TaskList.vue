@@ -89,11 +89,7 @@ export default {
     // todos: Array
   },
   created() {
-    window.addEventListener('beforeunload' , () => {
-      localStorage.setItem('test', JSON.stringify(this.allTasks))
-    })
-
-    this.allTasks = JSON.parse(localStorage.getItem('test'))
+    this.allTasks = JSON.parse(localStorage.getItem('allTasks')) || []
   },
   computed: {
     filtred() {
@@ -109,7 +105,7 @@ export default {
         return this.$store.getters.get_allTasks
       },
       set(val) {
-        this.$store.commit('set_allTasks', val)
+        this.$store.commit('set_allTasks', val )
       },
     },
     mode() {
