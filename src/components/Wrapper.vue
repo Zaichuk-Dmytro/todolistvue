@@ -11,7 +11,10 @@ export default {
   name: 'wrapper',
   data: () => ({
     
-  })
+  }),
+  created() {
+    
+  }
 }
 </script>
 
