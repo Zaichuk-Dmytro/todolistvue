@@ -15,6 +15,18 @@ export default new Vuex.Store({
       localStorage.setItem('allTasks', JSON.stringify(state.allTasks))
     },
 
+    editSelect(state, payload) {
+      state.allTasks.map(item => {
+        if (item.id == payload.id) {
+          item.select == !item.select
+        }
+      })
+      localStorage.setItem('allTasks', JSON.stringify(state.allTasks))
+      // console.log('payload')
+      // console.log(payload)
+      // localStorage.setItem('allTasks', JSON.stringify(state.allTasks))
+    },
+
     push_to_allTasks(state, payload) {
       if (payload == '') {
         return

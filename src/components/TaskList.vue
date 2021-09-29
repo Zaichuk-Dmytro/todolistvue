@@ -19,9 +19,12 @@
           <v-list-item-action class="mx-3 my-2">
             <v-checkbox 
               :input-value="active" 
-              v-model="item.select"
+              @click="test(item)"
+              v-model="item.select" 
               color="#af2f2f59"
             ></v-checkbox>
+
+
           </v-list-item-action>
           <v-hover
             v-slot="{ hover }"
@@ -83,10 +86,8 @@ export default {
   name: 'task-list',
   data: () => ({
     edit: ''
-    // settings: [],
   }),
   props: {
-    // todos: Array
   },
   created() {
     this.allTasks = JSON.parse(localStorage.getItem('allTasks')) || []
@@ -113,6 +114,9 @@ export default {
     }
   },
   methods: {
+    test(payload) {
+      this.$store.commit('editSelect', payload)
+    },
     deleteItem(id) {
       this.allTasks = this.allTasks.filter(item => item.id !== id)
     }
